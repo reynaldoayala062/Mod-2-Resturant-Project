@@ -1,0 +1,42 @@
+<div style = "margin-left: 20px; margin-right: 20px;">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="http://localhost:3000/menus">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:3000/orders/new?">Place an Order<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/food_orders/new?">Add to Order</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/orders?">View Order</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='/logout'>Log Out</a>
+        </li>
+      </ul>
+        <span class="navbar-text">
+          <% if logged_in? %>
+          <h5> <em>You are Logged In, <%= current_user.username %></em></h5>
+          <%end%>
+        </span>
+    </div>
+  </nav>
+
+<h1><%= @food.name %></h1>
+<hr>
+<h3>Description:</h3> <%= @food.description %>
+<h3>Price:</h3> $<%= @food.price %>
+<h3>Ingredients</h3>
+<ul>
+  <li><%= @food.food_ingredients.first.ingredient.name %></li><br>
+  <li><%= @food.food_ingredients.second.ingredient.name %></li>
+</ul>
+
+

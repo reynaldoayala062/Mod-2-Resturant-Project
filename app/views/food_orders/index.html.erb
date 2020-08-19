@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:3000/menus">Menu</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:3000/orders/new?">Place an Order<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/food_orders/new?">Add to Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/orders?">View Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h1>All Food_Orders </h1>
+<hr>
+<br>
+<% @food_orders.each do |o| %>
+    <%= link_to o.id, food_order_url(o.id) %>
+    <h3>Customer Name: <%= o.order.user.username%></h3>
+    <h4>Food Item: <%= o.food.name%></h4>
+    <p> Order Number: </p><%= o.order.order_number %>
+    <p> Price: $<%= o.food.price %> </p>
+    </div>
+    <hr>
+<% end%>
+
